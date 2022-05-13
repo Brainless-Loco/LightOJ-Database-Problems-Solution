@@ -1,0 +1,7 @@
+SELECT * FROM Goals G1
+where G1.goals_scored = (
+    select max(G2.goals_scored)
+    from Goals G2
+    where G2.team =G1.team 
+    group by G2.team
+) order by team, player;

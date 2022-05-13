@@ -1,0 +1,8 @@
+SELECT * FROM Goals
+where goals_scored = (
+    select  goals_scored from Goals
+    Group by goals_scored 
+    Order by goals_scored desc 
+    limit 1,1
+) 
+order by player;
